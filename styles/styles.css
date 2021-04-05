@@ -12,19 +12,22 @@ html {
     padding: 0;
   }
 
-
+  h1{
+    color: red;
+  }
 
 /*Start Game*/
-.canvas-container canvas {
+  canvas {
     width: 800px;
     height: 500px;
-    border: 1px solid black;
+    border: 2px solid black;
+    background-image: url('/img/background/game_background_1.png');
     background-position: center;
     background-size: cover;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);;
+    transform: translate(-50%, -50%);
   }
 
   .nav_main{

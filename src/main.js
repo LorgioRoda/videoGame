@@ -54,7 +54,7 @@ createGameScreen = () => {
         </header>
 
         <div class="canvas-container">
-            <canvas></canvas>
+            <canvas style='border: 2px solid red' id="canvas1"></canvas>
         </div>
         </div>
     </main>

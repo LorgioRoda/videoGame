@@ -25,14 +25,16 @@ class Game {
         this.canvasContainer = this.gameScreen.querySelector(".canvas-container");
         this.containerWidth = this.canvasContainer.clientWidth;
         this.containerHeight = this.canvasContainer.clientHeight;
-        this.canvasWidth = 800;
-        this.canvasHeight = 400;
-        //sprites
-        this.background.src = '/img/background/game_background_1.png'
-        
+        this.canvas.setAttribute("width", 800);
+		this.canvas.setAttribute("height", 400);
+        //background
+        //this.background.src = '/img/background/game_background_1.png'
+        //player 
         this.player = new Player(this.canvas)
-        this.playerSprite = new Image()
-        this.playerSprite.src = '/img/sprite-player/mandalorian2.png'
+        
+        //enemies
+        //this.enemies = new Enemies()
+        //this.enemies = new Image()
 
 
         this.startLoop();
@@ -52,10 +54,11 @@ class Game {
                 //this.ctx.drawImage(this.background,0,0,this.canvas.width,this.canvas.height)
                 //Player
                 this.player.drawSprite(this.playerSprite,this.player.width * this.player.frameX, this.player.height * this.player.frameY, this.player.width, this.player.height,this.player.x,this.player.y, this.player.width, this.player.height);
-                this.player.movePlayer()
                 this.player.handlePlayerFrame() 
+                this.player.movePlayer()
+                this.player.confirmedMove()
+                window.requestAnimationFrame(loop)
         }
-        this.player.confirmedMove()
         loop()
         
      }
