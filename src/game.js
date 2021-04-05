@@ -1,21 +1,21 @@
 class Game {
-    constructor(gameScren){
+    constructor(gameScreen){
         this.canvas = null;
         this.ctx = null;
         this.enemies = [];
         this.miners = [];
         this.player = null;
         this.gameIsOver = false;
-        this.gameScreen = gameScren;
+        this.gameScreen = gameScreen;
+        this.background = new Image()
         this.gameIsWin = false;
-        this.bar = undefined
+        this.timer = undefined
     }
 
     // Create ctx, a player and start the Canvas loop
-
     start() {
         //Save references to the bar elements
-        this.bar = this.gameScreen.querySelector('.lives .value')
+        this.timer = this.gameScreen.querySelector('.lives .value')
 
         //Get and create the canbas and it's context
         this.canvas = this.gameScreen.querySelector('canvas')
@@ -25,31 +25,46 @@ class Game {
         this.canvasContainer = this.gameScreen.querySelector(".canvas-container");
         this.containerWidth = this.canvasContainer.clientWidth;
         this.containerHeight = this.canvasContainer.clientHeight;
-        this.canvas.setAttribute("width", this.containerWidth);
-        this.canvas.setAttribute("height", this.containerHeight);
+        this.canvasWidth = 800;
+        this.canvasHeight = 400;
+        //sprites
+        this.background.src = '/img/background/game_background_1.png'
+        
+        this.player = new Player(this.canvas)
+        this.playerSprite = new Image()
+        this.playerSprite.src = '/img/sprite-player/mandalorian2.png'
 
-        //Create player, canvas and lives for miners
-        this.player = new Player(this.canvas, 10);
-
-        //Arrow function.
-
-        document.body.addEventListener("keydown", (event) => {
-            if (event.key === "ArrowUp") this.player.setDirection("up");
-            else if (event.key === "ArrowDown") this.player.setDirection("down");
-          });
 
         this.startLoop();
     }
 
+    
+
+    
+
+    
+
     startLoop() {
         //update status from players and enemies
         const loop = () => {
-            if(thids.enemies.length < 10){
-                if (Math.random() > 0.95){
-                const randomY = Math.floor((this.canvas.height - 20) * Math.random());
-                const newEnemy = new Enemy(this.canvas, randomY, 5);
-                this.enemies.push(newEnemy); 
-                }
-            }
+                this.ctx.clearRect(0,0,this.canvas.width, this.canvas.height);
+                //Background
+                //this.ctx.drawImage(this.background,0,0,this.canvas.width,this.canvas.height)
+                //Player
+                this.player.drawSprite(this.playerSprite,this.player.width * this.player.frameX, this.player.height * this.player.frameY, this.player.width, this.player.height,this.player.x,this.player.y, this.player.width, this.player.height);
+                this.player.movePlayer()
+                this.player.handlePlayerFrame() 
         }
+        this.player.confirmedMove()
+        loop()
+        
      }
+    
+    
+    
+    
+    
+    
+    
+    
+    }

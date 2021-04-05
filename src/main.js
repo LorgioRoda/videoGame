@@ -41,6 +41,7 @@ removeSplashScreen = () =>{
 createGameScreen = () => {
     gameScreen = buildDom(`
     <main>
+        <div class = 'game__background'>
         <header>
             <nav>
                 <button class="sound__on"></button>
@@ -54,6 +55,7 @@ createGameScreen = () => {
 
         <div class="canvas-container">
             <canvas></canvas>
+        </div>
         </div>
     </main>
     `)
@@ -75,8 +77,8 @@ createGameOverScreen = () => {
             <button class="sound__off"></button>
         </header>
         <div>
-        <img class="title__failed" src="" alt="">
-        <img class="image__failed" src="" alt="">
+            <img class="title__failed" src="" alt="">
+            <img class="image__failed" src="" alt="">
         </div>
     </main>
     `)
@@ -113,18 +115,13 @@ removeSplashScreen = () =>{
 // -- Setting the game state - start or game over
 //
 startGame = () => {
-    removeSplashScreen();
-    if(gameOverScreen){
-        removeGameOverScreen();
-    }else if (gameVictory){
-        removeSplashScreen()
-    }
+    removeSplashScreen()
     createGameScreen();
     
     //New class
     game = new Game(gameScreen);
+    console.log(game)
     //game.gameScreen = gameScreen;
-    //function game
     game.start();
   }
   
