@@ -21,9 +21,9 @@ html {
   background-position: center;
   width: 100vw;
   height: 100vh;
-}
+} 
 
-.main__menu--sounds img{
+.menu img{
   flex-direction: row;
   justify-content: flex-start;
   margin: 10px;

@@ -1,5 +1,5 @@
 class Miner {
-    constructor(canvas, positionX, speed){
+    constructor(canvas, positionX, speed, lives){
             this.canvas = canvas;
             this.ctx = this.canvas.getContext('2d');
             this.size = 20
@@ -14,9 +14,6 @@ class Miner {
         this.ctx.fillRect(this.positionX, this.positionY, this.size, this.size);
     }
 
-    removeLife() {
-        this.lives -= 1;
-    }
 
     updatePosition(){
         this.positionY -= this.speed

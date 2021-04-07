@@ -19,7 +19,7 @@ function createSplashScreen(){
     splashScreem = buildDom(`
     <main>
             <div class ='main__menu'>
-                <div class="main__menu--sounds">
+                <div class="menu">
                     <img class="timer" src="/img/UI/menu/7.png" alt="">  
                     <img class="timer" src="/img/UI/menu/skull.png" alt="">        
                 </div>
@@ -38,11 +38,7 @@ function createSplashScreen(){
     startButtom.addEventListener('click', startGame)
 }
 
-//Create a function for remove SplashScreen 
-removeSplashScreen = () =>{
-    // remove() is the DOM method that removes the Node from the page
-    splashScreem.remove()
-} 
+
 
 //Game Screen
 createGameScreen = () => {
@@ -50,11 +46,11 @@ createGameScreen = () => {
     <main>
         <header>
              <nav>
-            <div class="main__menu--sounds"> 
+            <div class="menu"> 
                 <img class="timer" src="/img/UI/menu/7.png" alt=""> 
-                <span class="value"></span>
-                <img class="timer" src="/img/UI/menu/skull.png" alt=""> 
-                <div class="lives"></div>
+                <span class="value">20</span>
+                <img class="lost" src="/img/UI/menu/skull.png" alt=""> 
+                <span class="timer">0</span>
             </div>
             </nav>    
         </header>
@@ -70,6 +66,7 @@ return gameScreen;
 removeSplashScreen = () =>{
     splashScreem.remove()
 } 
+
 
 //Game Over
 
@@ -90,9 +87,6 @@ createGameOverScreen = () => {
     return gameOverScreen;
 }
 
-removeSplashScreen = () =>{
-    splashScreem.remove()
-} 
 
 //Game Win
 
@@ -131,6 +125,10 @@ startGame = () => {
     console.log(game)
     //game.gameScreen = gameScreen;
     game.start();
+  }
+
+  removeGameScreen = () =>{
+    gameScreen.remove()
   }
   
 endGame = () => {
