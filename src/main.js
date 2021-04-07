@@ -18,10 +18,17 @@ buildDom = (htmlString) => {
 function createSplashScreen(){
     splashScreem = buildDom(`
     <main>
-        <button class="sound__on">sound on</button>
-        <button class="sound__off">sound off</button>
-            <h1>Title</h1>
-            <button class="game__intro">Start</button>
+            <div class ='main__menu'>
+                <div class="main__menu--sounds">
+                    <img class="timer" src="/img/UI/menu/7.png" alt="">  
+                    <img class="timer" src="/img/UI/menu/skull.png" alt="">        
+                </div>
+                <div class="main__menu--conteiner" >
+                    <h1></h1>
+                    <img src="/img/UI/menu/logo.png" alt="">
+                    <img class="game__intro" src="/img//UI//menu/button_play.png" alt="">
+                </div>
+            </div>
     </main>
     `);
 
@@ -41,20 +48,17 @@ removeSplashScreen = () =>{
 createGameScreen = () => {
     gameScreen = buildDom(`
     <main>
-        <div class = 'game__background'>
         <header>
-            <nav>
-                <button class="sound__on"></button>
-                <button class="sound__off"></button>
-                <img src="" alt="bar_mines">
-                <div class="lives">
+             <nav>
+            <div class="main__menu--sounds"> 
+                <img class="timer" src="/img/UI/menu/7.png" alt=""> 
                 <span class="value"></span>
+                <img class="timer" src="/img/UI/menu/skull.png" alt=""> 
+                <div class="lives"></div>
             </div>
             </nav>    
         </header>
-
-        <div class="canvas-container">
-            <canvas style='border: 2px solid red' id="canvas1"></canvas>
+        <canvas id="canvas1"> </canvas>
         </div>
         </div>
     </main>
@@ -98,6 +102,10 @@ createGameVictory = () => {
         <header>
             <button class="sound__on"></button>
             <button class="sound__off"></button>
+        <div class="lives">
+            <span class="label">Lives:</span>
+            <span class="value"></span>
+        </div>
         </header>
         <div>
             <img class="title__victory" src="" alt="">

@@ -1,23 +1,37 @@
 <main>
-    <button class="sound__on"></button>
-    <button class="sound__off"></button>
-        <h1></h1>
-        <button class="game__intro"></button>
+    <canvas>
+        <div class ='main__menu'>
+            <div class="main__menu--sounds">
+                <img class="sound__on" src="/img/UI/menu/button_music.png" alt="">
+                <img class="sound__off" src="/img/UI/menu/button_music_off.png" alt=""> 
+                <img class="timer" src="/img/UI/menu/7.png" alt=""> 
+                <img class="timer" src="/img/UI/menu/skull.png" alt="">         
+            </div>
+            <div class="main__menu--conteiner" >
+                <h1></h1>
+                <img src="/img/UI/menu/logo.png" alt="">
+                <img class="game__intro" src="/img//UI//menu/button_play.png" alt="">
+            </div>
+        </div>
+    </canvas>
 </main>
 
 <!--GameScreen-->
 
 <main>
+    <div class = 'main__menu--bar'>
     <header>
         <nav>
-            <button class="sound__on"></button>
-            <button class="sound__off"></button>
-            <img src="" alt="bar_mines">
-        </nav>    
-    </header>
-
-    <div class="canvas-container">
-        <canvas></canvas>
+            <img class="sound__on" src="/img/UI/menu/button_music.png" alt="">
+            <img class="sound__off" src="/img/UI/menu/button_music_off.png" alt=""> 
+            <img class="timer" src="/img/UI/menu/7.png" alt=""> 
+            <span class="value"></span>
+            <img class="timer" src="/img/UI/menu/skull.png" alt=""> 
+            <div class="lives"></div>
+        </nav> 
+    </header>   
+        <canvas id="canvas1"></canvas>
+    </div>
     </div>
 </main>
 

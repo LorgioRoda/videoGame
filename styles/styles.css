@@ -11,28 +11,53 @@ html {
     margin: 0;
     padding: 0;
   }
+/*Style menu*/
 
-  h1{
-    color: red;
-  }
+
+.main__menu{
+  background-image: url('/img//background/game_background_3\ \(1\).png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main__menu--sounds img{
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 10px;
+  width: 5%;
+  height: 5%;
+} 
+
+.main__menu--conteiner img{
+    display: flex;
+    text-align: center;
+    padding: 30px;
+    margin: auto;
+    width: 50%;
+    height: auto;
+}
+
+.main__menu--conteiner .game__intro{
+    height:auto;
+    width: 20%;
+    cursor: pointer;
+}
 
 /*Start Game*/
-  canvas {
-    width: 800px;
-    height: 500px;
-    border: 2px solid black;
-    background-image: url('/img/background/game_background_1.png');
+#canvas1 {
+    width: 100%;
+    height: 100%;
+    background-image: url('/img/background/game_background_3\ \(1\).png'); 
     background-position: center;
     background-size: cover;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-
-  .nav_main{
-    display: flex;
-    margin-bottom: 80px;
+    z-index: -1
   }
 
   
