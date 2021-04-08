@@ -9,7 +9,8 @@ class Game {
     this.gameScreen = gameScreen;
     this.gameIsWin = false;
     this.timer = new Timer();
-    this.lives = 100
+    this.lives = 30;
+    this.time = this.timer.currentTime;
   }
 
   // Create ctx, a player and start the Canvas loop
@@ -17,9 +18,9 @@ class Game {
     //Save references to the bar elements
     //this.timer = this.gameScreen.querySelector('.lives .value')
     this.livesElement = this.gameScreen.querySelector(".menu .value");
-    console.log(this.livesElement);
     this.timerElement = this.gameScreen.querySelector(".menu .timer");
-    //Get and create the canbas and it's context
+    console.log(this.timerElement);
+    //Get and create the canvas and it's context
     this.canvas = this.gameScreen.querySelector("#canvas1");
     this.ctx = this.canvas.getContext("2d");
 
@@ -36,22 +37,32 @@ class Game {
       "/img/sprite-player/mandalorian2.png"
     );
 
-    //enemies
-    //this.enemies = new Enemies()
-    //this.enemies = new Image()
+    this.timer.startClick();
 
     this.startLoop();
   }
 
   startLoop() {
     const loop = () => {
+      //Timer
+      //retrocede cuando llegue a cero game over
+      if (this.timer.currentTime <= 0) {
+        this.timer.stop();
+        this.gameOver();
+        }
+
       //dificultad
-      const level1 = 0.95;
+      const level1 = 0.98;
       const level2 = 0.9;
       const level3 = 0.8;
-      if(Math.random() > 0.95) {
-        const randomY = 180 + Math.floor(Math.random() * 270);
-        const newEnemy = new Enemy(this.canvas, randomY, 2);
+      if (Math.random() > level1) {
+        const randomY = 270 + Math.floor(Math.random() * 390);
+        const newEnemy = new Enemy(
+          this.canvas,
+          randomY,
+          1,
+          "/img/enemy/enemigo2.png"
+        );
         this.enemies.push(newEnemy);
       }
 
@@ -70,7 +81,6 @@ class Game {
         return enemy.isInsideScreen();
       });
 
-      //renovar canvas
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
       //player draw
@@ -90,11 +100,9 @@ class Game {
       //miners
       if (this.miners.length < 5) {
         if (Math.random() > 0.95) {
-          const randomX = Math.floor(
-            (this.canvas.height - 400) * Math.random()
-          );
+          const randomX = 0 + Math.floor(Math.random() * 10);
           //create Miner
-          const newMiners = new Miner(this.canvas, randomX, 9);
+          const newMiners = new Miner(this.canvas, randomX, 3, '/img/miner/enemigo.png');
           this.miners.push(newMiners);
         }
       }
@@ -108,21 +116,7 @@ class Game {
         return miner.isInsideScreen();
       });
 
-      this.updateGameStats()  
-
-      //timer
-       this.timerElement = setInterval(() => {
-                    if(this.timer.timeLeft >= 0){
-                        this.timer.getStringTimer()
-                        let timeString = this.timer.getStringTimer()
-                    }
-                        else if (this.timer.timeLeft < 0){
-                            this.timer.stop();
-                            clearInterval(this.printElement);
-                            this.gameIsOver()
-                        }
-                    
-                }, 1) 
+      this.updateGameStats();
 
       //leave game
       if (!this.gameIsOver) {
@@ -146,24 +140,23 @@ class Game {
 
   CheckCollisionsMiner() {
     this.enemies.forEach((enemy) => {
-      this.miners.forEach((miner) => {
+      this.miners.forEach((miner, index) => {
         if (miner.minerDidCollide(enemy)) {
-          this.lostMiner();
-          //console.log(this.lives)
+            
           //delete Miner
-          miner.positionX = 0 - miner.size;
-          }
-          if(this.lives === 0){
-              this.gameOver()
-          }
+          this.miners.splice(index, 1)
+          this.lostMiner();
+        }
+        if (this.lives === 0) {
+          this.gameOver();
+        }
       });
     });
   }
 
   updateGameStats() {
     this.livesElement.innerText = this.lives;
-    this.livesElement.innerText = this.timer.currentTime
-    
+    this.timerElement.innerText = this.timer.getStringTimer();
   }
 
   gameOver() {
@@ -172,7 +165,6 @@ class Game {
   }
 
   lostMiner() {
-    this.lives -= 1;
+    this.lives -=1;
+  }
 }
-}
-

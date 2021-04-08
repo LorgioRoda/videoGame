@@ -47,10 +47,10 @@ createGameScreen = () => {
         <header>
              <nav>
             <div class="menu"> 
-                <img class="timer" src="/img/UI/menu/7.png" alt=""> 
-                <span class="value">20</span>
-                <img class="lost" src="/img/UI/menu/skull.png" alt=""> 
+                <img src="/img/UI/menu/7.png" alt=""> 
                 <span class="timer">0</span>
+                <img class="lost" src="/img/UI/menu/skull.png" alt=""> 
+                <span class="value">0</span>
             </div>
             </nav>    
         </header>

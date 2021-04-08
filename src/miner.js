@@ -1,27 +1,48 @@
 class Miner {
-    constructor(canvas, positionX, speed, lives){
+    constructor(canvas, positionX, speed, MinerImgSrc){
             this.canvas = canvas;
             this.ctx = this.canvas.getContext('2d');
-            this.size = 20
+            this.width = 20;
+            this.height = 48;
+            this.size = this.width + this.height
             this.positionX = positionX
             this.positionY = this.canvas.height;
             this.speed = speed;
-        
+            //sprite
+            this.frameX = 0;
+            this.frameY = 0;
+            this.minFrame = 0;
+            this.maxFrame = 4;
+            this.image = new Image();
+            this.image.src = MinerImgSrc;
     }
 
     draw(){
-        this.ctx.fillStyle = "#Ff0000";
-        this.ctx.fillRect(this.positionX, this.positionY, this.size, this.size);
+            this.ctx.drawImage(
+                this.image,
+                this.image.width / 4 * this.frameX,
+                0, 
+                this.image.width / 4,
+                this.image.height,
+                this.positionX,
+                this.positionY,
+                this.width,
+                this.height
+                );
     }
 
 
     updatePosition(){
         this.positionY -= this.speed
+       /*  if (this.frameY < 4) {
+            this.frameY++;
+          } else if ((this.frameY = 0)) {
+          } */
     }
 
     isInsideScreen() {
         const minersTop = this.positionY + this.size;
-        const screenBottom = 120;
+        const screenBottom = 390;
         const minersInside = minersTop > screenBottom;
         return minersInside;
         //return this.x + this.size > 0;
