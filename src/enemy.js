@@ -8,34 +8,43 @@ class Enemy {
     this.positionX = this.canvas.width;
     this.positionY = positionY;
     this.speed = speed;
+
     this.frameX = 0;
-    this.frameY = 0;
-    this.minFrame = 0;
-    this.maxFrame = 4;
+    this.frame = 4;
     this.image = new Image();
     this.image.src = enemyImgSrc;
   }
 
-  draw() {
+  draw(framesCounter) {
     this.ctx.drawImage(
       this.image,
-      this.image.width / 4 * this.frameX,
+      this.frameX * Math.floor(this.image.width / this.frame),
       0, 
-      this.image.width / 4,
+      Math.floor(this.image.width / this.frame),
       this.image.height,
       this.positionX,
       this.positionY,
       this.width,
       this.height
       );
+      this.animate(framesCounter)
+  }
+
+  animate(framesCounter){
+    if (framesCounter % 10 === 0){
+      this.frameX++
+      if(this.frameX > 3) this.frameX = 0;
+    }
   }
 
   updatePosition() {
     this.positionX -= this.speed;
     //console.log(this.frameX)
     //console.log(this.frameY) 
-    if (this.frameX < this.maxFrame) this.frameX++;
-    else this.frameX = this.minFrame; 
+    /* if (this.frameY < 3) {
+      this.frameY++;
+    } else if ((this.frameY = 0)) {
+    } */
   }
 
   //comprobate enemies out

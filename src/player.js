@@ -3,7 +3,7 @@ class Player {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
     this.width = 20;
-    this.height = 48;
+    this.height = 80;
     this.positionX = 50;
     this.positionY = this.canvas.height / 2;
     //comentarlo
@@ -18,10 +18,10 @@ class Player {
     this.frameY = 0;
   }
 
-  drawSprite() {
+  drawSprite(frameCounter) {
     this.ctx.drawImage(
       this.image,
-      this.image.width / 8 * this.frameX,
+      this.image.width / 4 * this.frameX,
       this.image.height / 4 * this.frameY, 
       this.image.width / 4,
       this.image.height / 4,
@@ -30,14 +30,16 @@ class Player {
       this.width,
       this.height
     );
+    this.handlePlayerFrame(frameCounter)
   }
 
 
 
-  handlePlayerFrame() {
-    if (this.frameX < 3 && this.moving) {
+  handlePlayerFrame(frameCounter) {
+    if (frameCounter % 10 === 0 && this.moving) {
       this.frameX++;
-    } else if ((this.frameX = 0)) {
+      //console.log(this.frameX)
+      if(this.frameX > 3) this.frameX = 0;
     }
   }
 
@@ -60,7 +62,6 @@ class Player {
       this.positionY -= this.speed;
       this.frameY = 3;
       this.moving = true
-      console.log(this.frameY)
     }
     if (this.keys[37] && this.positionX > 0) {
       this.positionX -= this.speed;

@@ -34,10 +34,10 @@ class Miner {
 
     updatePosition(){
         this.positionY -= this.speed
-       /*  if (this.frameY < 4) {
+        if (this.frameY < 3) {
             this.frameY++;
           } else if ((this.frameY = 0)) {
-          } */
+          } 
     }
 
     isInsideScreen() {

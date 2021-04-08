@@ -11,6 +11,7 @@ class Game {
     this.timer = new Timer();
     this.lives = 30;
     this.time = this.timer.currentTime;
+    this.framesCounter = 0
   }
 
   // Create ctx, a player and start the Canvas loop
@@ -19,7 +20,6 @@ class Game {
     //this.timer = this.gameScreen.querySelector('.lives .value')
     this.livesElement = this.gameScreen.querySelector(".menu .value");
     this.timerElement = this.gameScreen.querySelector(".menu .timer");
-    console.log(this.timerElement);
     //Get and create the canvas and it's context
     this.canvas = this.gameScreen.querySelector("#canvas1");
     this.ctx = this.canvas.getContext("2d");
@@ -45,7 +45,6 @@ class Game {
   startLoop() {
     const loop = () => {
       //Timer
-      //retrocede cuando llegue a cero game over
       if (this.timer.currentTime <= 0) {
         this.timer.stop();
         this.gameOver();
@@ -65,13 +64,17 @@ class Game {
         );
         this.enemies.push(newEnemy);
       }
-
+      //Frames Counter
+      this.framesCounter++
+      
+      
       //checkCollisions
       this.checkCollisions();
       this.CheckCollisionsMiner();
 
       this.enemies.forEach((enemy) => {
         if (enemy.isInsideScreen) {
+
         }
       });
 
@@ -84,16 +87,15 @@ class Game {
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
       //player draw
-      this.player.drawSprite();
-      this.player.handlePlayerFrame();
+      this.player.drawSprite(this.framesCounter);
+      
 
       //draw enemies
       this.enemies.forEach((enemy) => {
-        enemy.draw();
+        enemy.draw(this.framesCounter);
       });
 
       //method player
-      this.player.handlePlayerFrame();
       this.player.movePlayer();
       this.player.confirmedMove();
 
@@ -132,8 +134,6 @@ class Game {
       if (this.player.didCollide(enemy)) {
         //delete enemy
         enemy.positionX = 0 - enemy.size;
-
-        //if (this.player.live === 0)
       }
     });
   }
