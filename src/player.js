@@ -6,7 +6,7 @@ class Player {
     this.height = 60;
     this.positionX = 50;
     this.positionY = this.canvas.height / 2;
-    this.size = 60;
+    this.size = 40;
     this.keys = [];
     this.speed = 1.1;
     this.moving = false;
@@ -37,7 +37,6 @@ class Player {
   handlePlayerFrame(frameCounter) {
     if (frameCounter % 10 === 0 && this.moving) {
       this.frameX++;
-      //console.log(this.frameX)
       if(this.frameX > 3) this.frameX = 0;
     }
   }
@@ -78,7 +77,6 @@ class Player {
   }
 
   didCollide(enemy) {
-    //aqui se puede cambiar el tamanho para el size -5, hitbox
     const playerLeft = this.positionX;
     const playerRight = this.positionX + this.size;
     const playerTop = this.positionY;
@@ -102,5 +100,3 @@ class Player {
     }
   }
 }
-
-//520--- 380

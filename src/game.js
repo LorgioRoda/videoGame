@@ -97,7 +97,7 @@ class Game {
       //miners
       if (this.miners.length < 5) {
         if (Math.random() > 0.95) {
-          const randomX = 0 + Math.floor(Math.random() * 10);
+          const randomX = 0 + Math.floor(Math.random() * 80);
           //create Miner
           const newMiners = new Miner(
             this.canvas,

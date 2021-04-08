@@ -10,34 +10,36 @@ class Miner {
             this.speed = speed;
             //sprite
             this.frameX = 0;
-            this.frameY = 0;
-            this.minFrame = 0;
-            this.maxFrame = 4;
+            this.frame = 4;
             this.image = new Image();
             this.image.src = MinerImgSrc;
     }
 
-    draw(){
+    draw(frameCounter){
             this.ctx.drawImage(
                 this.image,
-                this.image.width / 4 * this.frameX,
+                this.frameX * Math.floor(this.image.width / this.frame),
                 0, 
-                this.image.width / 4,
+                Math.floor(this.image.width / this.frame),
                 this.image.height,
                 this.positionX,
                 this.positionY,
                 this.width,
                 this.height
                 );
+                this.animate(frameCounter)
     }
 
+    animate(frameCounter) {
+        if (frameCounter % 10 === 0) {
+          this.frameX++;
+          console.log(this.frameX)
+          if(this.frameX > 3) this.frameX = 0;
+        }
+      }
 
     updatePosition(){
         this.positionY -= this.speed
-        if (this.frameY < 3) {
-            this.frameY++;
-          } else if ((this.frameY = 0)) {
-          } 
     }
 
     isInsideScreen() {
