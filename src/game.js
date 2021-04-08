@@ -11,7 +11,7 @@ class Game {
     this.timer = new Timer();
     this.lives = 30;
     this.time = this.timer.currentTime;
-    this.framesCounter = 0
+    this.framesCounter = 0;
   }
 
   // Create ctx, a player and start the Canvas loop
@@ -48,35 +48,31 @@ class Game {
       if (this.timer.currentTime <= 0) {
         this.timer.stop();
         this.gameOver();
-        }
+      } else if  (this.timer.currentTime == 0){
+        this.gameVictory()
+      } 
 
       //dificultad
       const level1 = 0.98;
       const level2 = 0.9;
       const level3 = 0.8;
+      
       if (Math.random() > level1) {
-        const randomY = 270 + Math.floor(Math.random() * 390);
+        const randomY = 350 + Math.floor(Math.random() * 290);
         const newEnemy = new Enemy(
           this.canvas,
           randomY,
-          1,
+          0.8,
           "images/enemy/enemy.png"
         );
         this.enemies.push(newEnemy);
       }
       //Frames Counter
-      this.framesCounter++
-      
-      
+      this.framesCounter++;
+
       //checkCollisions
       this.checkCollisions();
       this.CheckCollisionsMiner();
-
-      this.enemies.forEach((enemy) => {
-        if (enemy.isInsideScreen) {
-
-        }
-      });
 
       //update position
       this.enemies = this.enemies.filter((enemy) => {
@@ -88,7 +84,6 @@ class Game {
 
       //player draw
       this.player.drawSprite(this.framesCounter);
-      
 
       //draw enemies
       this.enemies.forEach((enemy) => {
@@ -104,7 +99,12 @@ class Game {
         if (Math.random() > 0.95) {
           const randomX = 0 + Math.floor(Math.random() * 10);
           //create Miner
-          const newMiners = new Miner(this.canvas, randomX, 3, 'images/miner/ally.png');
+          const newMiners = new Miner(
+            this.canvas,
+            randomX,
+            3,
+            "images/miner/ally.png"
+          );
           this.miners.push(newMiners);
         }
       }
@@ -142,14 +142,16 @@ class Game {
     this.enemies.forEach((enemy) => {
       this.miners.forEach((miner, index) => {
         if (miner.minerDidCollide(enemy)) {
-            
           //delete Miner
-          this.miners.splice(index, 1)
+          this.miners.splice(index, 1);
           this.lostMiner();
+          if (this.lives === 0) {
+            console.log('holaaaaaaaaaaaaa')
+            this.lives = 0
+            endGame();
         }
-        if (this.lives === 0) {
-          this.gameOver();
         }
+        
       });
     });
   }
@@ -161,10 +163,14 @@ class Game {
 
   gameOver() {
     this.gameIsOver = true;
-    endGame(this.lives);
+    endGame();
   }
 
   lostMiner() {
-    this.lives -=1;
+    this.lives -= 1;
+  }
+  gameVictory(){
+    this.gameIsWin = true;
+    victoryGame();  
   }
 }

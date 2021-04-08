@@ -53,11 +53,45 @@ html {
     background-size: cover;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 50%; 
     transform: translate(-50%, -50%);
     z-index: -1
   }
 
+  .menu {
+    display: flex;
+    margin: auto;
+    color: aliceblue;
+    font-weight: 700;
+    font-size: 30px;
+  } 
+.menu span {
+  padding: 10px 0px
+}
+.value{
+  margin: 10px 0;
+  color: #f95d2d;
+}
+.timer{
+  margin: 10px 0;
+  color: #1f8487;
+}
 
-  /**/ 
+
+  /*End Game*/
+  .faild{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../images/gameover/preview_failed.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  } 
+
+  /*Victory*/
+  .victory {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../images/victory/preview_win.png') ;
+  }
   

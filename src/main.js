@@ -73,13 +73,7 @@ removeSplashScreen = () =>{
 createGameOverScreen = () => {
     gameOverScreen = buildDom(`
     <main>
-        <header>
-            <button class="sound__on"></button>
-            <button class="sound__off"></button>
-        </header>
-        <div>
-            <img class="title__failed" src="" alt="">
-            <img class="image__failed" src="" alt="">
+        <div class="faild">
         </div>
     </main>
     `)
@@ -93,17 +87,7 @@ createGameOverScreen = () => {
 createGameVictory = () => {
     gameVictory = buildDom(`
     <main>
-        <header>
-            <button class="sound__on"></button>
-            <button class="sound__off"></button>
-        <div class="lives">
-            <span class="label">Lives:</span>
-            <span class="value"></span>
-        </div>
-        </header>
-        <div>
-            <img class="title__victory" src="" alt="">
-            <img class="image__victory" src="" alt="">
+        <div class="victory">
         </div>
     </main>
     `)
@@ -122,7 +106,6 @@ startGame = () => {
     
     //New class
     game = new Game(gameScreen);
-    console.log(game)
     //game.gameScreen = gameScreen;
     game.start();
   }
@@ -135,5 +118,10 @@ endGame = () => {
     removeGameScreen();
     createGameOverScreen(gameOverScreen);
   }
+
+ victoryGame = () =>{
+      removeGameScreen();
+      createGameVictory()
+  } 
 
 window.addEventListener('load', createSplashScreen)
