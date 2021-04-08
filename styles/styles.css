@@ -13,7 +13,7 @@ html {
   }
 /*Style menu*/
 .main__menu{
-  background-image: url('/img/background/game_background_3.png');
+  background-image: url('../img/background/game_background.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -48,7 +48,7 @@ html {
 #canvas1 {
     width: 100vw;
     height: 100vh; 
-    background-image: url('/img//background/game_background.png'); 
+    background-image: url('../img//background/game_background.png'); 
     background-position: center;
     background-size: cover;
     position: absolute;
