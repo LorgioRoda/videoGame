@@ -13,7 +13,7 @@ html {
   }
 /*Style menu*/
 .main__menu{
-  background-image: url('/img//background/game_background_3\ \(1\).png');
+  background-image: url('/img/background/game_background_3.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -58,4 +58,6 @@ html {
     z-index: -1
   }
 
+
+  /**/ 
   

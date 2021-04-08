@@ -8,7 +8,6 @@ class Enemy {
     this.positionX = this.canvas.width;
     this.positionY = positionY;
     this.speed = speed;
-
     this.frameX = 0;
     this.frame = 4;
     this.image = new Image();
@@ -39,15 +38,8 @@ class Enemy {
 
   updatePosition() {
     this.positionX -= this.speed;
-    //console.log(this.frameX)
-    //console.log(this.frameY) 
-    /* if (this.frameY < 3) {
-      this.frameY++;
-    } else if ((this.frameY = 0)) {
-    } */
   }
 
-  //comprobate enemies out
   isInsideScreen() {
     const enemyRight = this.positionX + this.size;
     const screenLeft = 0;
