@@ -34,7 +34,7 @@ class Game {
     //player
     this.player = new Player(
       this.canvas,
-      "img/sprite-player/mandalorian.png"
+      "images/sprite-player/mandalorian.png"
     );
 
     this.timer.startClick();
@@ -60,7 +60,7 @@ class Game {
           this.canvas,
           randomY,
           1,
-          "img/enemy/enemy.png"
+          "images/enemy/enemy.png"
         );
         this.enemies.push(newEnemy);
       }
@@ -104,7 +104,7 @@ class Game {
         if (Math.random() > 0.95) {
           const randomX = 0 + Math.floor(Math.random() * 10);
           //create Miner
-          const newMiners = new Miner(this.canvas, randomX, 3, 'img/miner/ally.png');
+          const newMiners = new Miner(this.canvas, randomX, 3, 'images/miner/ally.png');
           this.miners.push(newMiners);
         }
       }
