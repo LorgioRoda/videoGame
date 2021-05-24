@@ -54,19 +54,17 @@ class Game {
 
       //dificultad
       const level1 = 0.98;
-      const level2 = 0.9;
-      const level3 = 0.8;
 
-      if (Math.random() > level1) {
-        const randomY = 350 + Math.floor(Math.random() * 290);
-        const newEnemy = new Enemy(
-          this.canvas,
-          randomY,
-          0.8,
-          "images/enemy/enemy.png"
-        );
-        this.enemies.push(newEnemy);
-      }
+        if (Math.random() > level1) {
+          const randomY = 350 + Math.floor(Math.random() * 290);
+          const newEnemy = new Enemy(
+            this.canvas,
+            randomY,
+            0.8,
+            "images/enemy/enemy.png"
+          );
+          this.enemies.push(newEnemy);
+        }
       //Frames Counter
       this.framesCounter++;
 

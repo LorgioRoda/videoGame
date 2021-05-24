@@ -3,12 +3,12 @@ class Player {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
     this.width = 20;
-    this.height = 60;
+    this.height = 50;
     this.positionX = 50;
     this.positionY = this.canvas.height / 2;
     this.size = 40;
     this.keys = [];
-    this.speed = 1.1;
+    this.speed = 1.3;
     this.moving = false;
     //spites
     this.image = new Image();
