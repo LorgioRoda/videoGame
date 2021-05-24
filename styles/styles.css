@@ -1,97 +1,95 @@
 html {
-    box-sizing: border-box;
-  }
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
-  
-  body {
-    margin: 0;
-    padding: 0;
-  }
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
 /*Style menu*/
-.main__menu{
-  background-image: url('../images/background/game_background.png');
+.main__menu {
+  background-image: url("../images/background/game_background.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   width: 100vw;
   height: 100vh;
-} 
+}
 
-.menu img{
+.menu img {
   flex-direction: row;
   justify-content: flex-start;
   margin: 10px;
   width: 5%;
   height: 5%;
-} 
-
-.main__menu--conteiner img{
-    display: flex;
-    text-align: center;
-    padding: 30px;
-    margin: auto;
-    width: 50%;
-    height: auto;
 }
 
-.main__menu--conteiner .game__intro{
-    height:auto;
-    width: 20%;
-    cursor: pointer;
+.main__menu--conteiner img {
+  display: flex;
+  text-align: center;
+  padding: 30px;
+  margin: auto;
+  width: 50%;
+  height: auto;
+}
+
+.main__menu--conteiner .game__intro {
+  height: auto;
+  width: 20%;
+  cursor: pointer;
 }
 
 /*Start Game*/
 #canvas1 {
-    width: 100vw;
-    height: 100vh; 
-    background-image: url('../images/background/game_background.png'); 
-    background-position: center;
-    background-size: cover;
-    position: absolute;
-    top: 50%;
-    left: 50%; 
-    transform: translate(-50%, -50%);
-    z-index: -1
-  }
-
-  .menu {
-    display: flex;
-    margin: auto;
-    color: aliceblue;
-    font-weight: 700;
-    font-size: 30px;
-  } 
-.menu span {
-  padding: 10px 0px
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../images/background/game_background.png");
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }
-.value{
+
+.menu {
+  display: flex;
+  margin: auto;
+  color: aliceblue;
+  font-weight: 700;
+  font-size: 30px;
+}
+.menu span {
+  padding: 10px 0px;
+}
+.value {
   margin: 10px 0;
   color: #f95d2d;
 }
-.timer{
+.timer {
   margin: 10px 0;
   color: #1f8487;
 }
 
+/*End Game*/
+.faild {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../images/gameover/preview_failed.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-  /*End Game*/
-  .faild{
-    width: 100vw;
-    height: 100vh;
-    background-image: url('../images/gameover/preview_failed.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  } 
-
-  /*Victory*/
-  .victory {
-    width: 100vw;
-    height: 100vh;
-    background-image: url('../images/victory/preview_win.png') ;
-  }
-  
+/*Victory*/
+.victory {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../images/victory/preview_win.png");
+}

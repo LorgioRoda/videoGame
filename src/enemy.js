@@ -18,21 +18,21 @@ class Enemy {
     this.ctx.drawImage(
       this.image,
       this.frameX * Math.floor(this.image.width / this.frame),
-      0, 
+      0,
       Math.floor(this.image.width / this.frame),
       this.image.height,
       this.positionX,
       this.positionY,
       this.width,
       this.height
-      );
-      this.animate(framesCounter)
+    );
+    this.animate(framesCounter);
   }
 
-  animate(framesCounter){
-    if (framesCounter % 10 === 0){
-      this.frameX++
-      if(this.frameX > 3) this.frameX = 0;
+  animate(framesCounter) {
+    if (framesCounter % 10 === 0) {
+      this.frameX++;
+      if (this.frameX > 3) this.frameX = 0;
     }
   }
 

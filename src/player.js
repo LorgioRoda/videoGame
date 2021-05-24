@@ -20,8 +20,8 @@ class Player {
   drawSprite(frameCounter) {
     this.ctx.drawImage(
       this.image,
-      this.image.width / 4 * this.frameX,
-      this.image.height / 4 * this.frameY, 
+      (this.image.width / 4) * this.frameX,
+      (this.image.height / 4) * this.frameY,
       this.image.width / 4,
       this.image.height / 4,
       this.positionX,
@@ -29,18 +29,15 @@ class Player {
       this.width,
       this.height
     );
-    this.handlePlayerFrame(frameCounter)
+    this.handlePlayerFrame(frameCounter);
   }
-
-
 
   handlePlayerFrame(frameCounter) {
     if (frameCounter % 10 === 0 && this.moving) {
       this.frameX++;
-      if(this.frameX > 3) this.frameX = 0;
+      if (this.frameX > 3) this.frameX = 0;
     }
   }
-
 
   confirmedMove() {
     document.body.addEventListener("keydown", (e) => {
@@ -49,17 +46,17 @@ class Player {
     });
 
     document.body.addEventListener("keyup", (e) => {
-       this.keys[e.keyCode] = false;
+      this.keys[e.keyCode] = false;
       this.moving = false;
     });
   }
-  
+
   movePlayer() {
     this.confirmedMove();
     if (this.keys[38] && this.positionY > 300) {
       this.positionY -= this.speed;
       this.frameY = 3;
-      this.moving = true
+      this.moving = true;
     }
     if (this.keys[37] && this.positionX > 0) {
       this.positionX -= this.speed;
@@ -68,7 +65,6 @@ class Player {
     if (this.keys[40] && this.positionY < 700 - this.height) {
       this.positionY += this.speed;
       this.frameY = 0;
-      //console.log(this.frameX)
     }
     if (this.keys[39] && this.positionX < 1250) {
       this.positionX += this.speed;

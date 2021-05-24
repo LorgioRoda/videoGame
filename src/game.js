@@ -48,15 +48,15 @@ class Game {
       if (this.timer.currentTime <= 0) {
         this.timer.stop();
         this.gameOver();
-      } else if  (this.timer.currentTime == 0){
-        this.gameVictory()
-      } 
+      } else if (this.timer.currentTime == 0) {
+        this.gameVictory();
+      }
 
       //dificultad
       const level1 = 0.98;
       const level2 = 0.9;
       const level3 = 0.8;
-      
+
       if (Math.random() > level1) {
         const randomY = 350 + Math.floor(Math.random() * 290);
         const newEnemy = new Enemy(
@@ -146,12 +146,10 @@ class Game {
           this.miners.splice(index, 1);
           this.lostMiner();
           if (this.lives === 0) {
-            console.log('holaaaaaaaaaaaaa')
-            this.lives = 0
+            this.lives = 0;
             endGame();
+          }
         }
-        }
-        
       });
     });
   }
@@ -169,8 +167,8 @@ class Game {
   lostMiner() {
     this.lives -= 1;
   }
-  gameVictory(){
+  gameVictory() {
     this.gameIsWin = true;
-    victoryGame();  
+    victoryGame();
   }
 }
