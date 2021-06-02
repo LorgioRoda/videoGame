@@ -68,11 +68,22 @@ removeSplashScreen = () => {
 
 createGameOverScreen = () => {
   gameOverScreen = buildDom(`
-    <main>
-        <div class="faild">
-        </div>
-    </main>
+  <main>
+      <div class ='main__menu'>
+          <div class="menu">
+              <img class="timer" src="images/UI/menu/7.png" alt="">
+              <img class="timer" src="images/UI/menu/skull.png" alt="">
+          </div>
+          <div class="main__menu--conteiner" >
+              <h1></h1>
+              <img src="images/UI/menu/logo.png" alt="">
+              <img class="game__intro" src="images/UI/menu/button_play.png" alt="">
+          </div>
+      </div>
+  </main>
     `);
+  const startButtom = splashScreem.querySelector(".game__intro");
+  startButtom.addEventListener("click", startGame);
   document.body.appendChild(gameOverScreen);
   return gameOverScreen;
 };

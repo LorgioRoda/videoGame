@@ -34,7 +34,7 @@ class Game {
     //player
     this.player = new Player(
       this.canvas,
-      "../images/sprite-player/css_sprites (5).png"
+      "/images/sprite-player/player.png"
     );
 
     this.timer.startClick();
@@ -53,7 +53,7 @@ class Game {
       }
 
       //dificultad
-      const level1 = 0.98;
+      const level1 = 0.99;
 
         if (Math.random() > level1) {
           const randomY = 350 + Math.floor(Math.random() * 290);
@@ -61,7 +61,7 @@ class Game {
             this.canvas,
             randomY,
             0.8,
-            "../images/enemy/css_sprites (1).png"
+            "/images/enemy/enemy.png"
           );
           this.enemies.push(newEnemy);
         }
@@ -101,7 +101,7 @@ class Game {
             this.canvas,
             randomX,
             3,
-            "../images/miner/css_sprites (3).png"
+            "/images/miner/ally.png"
           );
           this.miners.push(newMiners);
         }
