@@ -53,7 +53,7 @@ class Game {
       }
 
       //dificultad
-      const level1 = 0.99;
+      const level1 = 0.98;
 
         if (Math.random() > level1) {
           const randomY = 350 + Math.floor(Math.random() * 290);
