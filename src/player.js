@@ -2,8 +2,8 @@ class Player {
   constructor(canvas, playerImgSrc) {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
-    this.width = 20;
-    this.height = 50;
+    this.width = 60;
+    this.height = 120;
     this.positionX = 50;
     this.positionY = this.canvas.height / 2;
     this.size = 40;

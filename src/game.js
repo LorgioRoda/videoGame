@@ -34,7 +34,7 @@ class Game {
     //player
     this.player = new Player(
       this.canvas,
-      "images/sprite-player/mandalorian.png"
+      "../images/sprite-player/css_sprites (5).png"
     );
 
     this.timer.startClick();
@@ -61,7 +61,7 @@ class Game {
             this.canvas,
             randomY,
             0.8,
-            "images/enemy/enemy.png"
+            "../images/enemy/css_sprites (1).png"
           );
           this.enemies.push(newEnemy);
         }
@@ -101,7 +101,7 @@ class Game {
             this.canvas,
             randomX,
             3,
-            "images/miner/ally.png"
+            "../images/miner/css_sprites (3).png"
           );
           this.miners.push(newMiners);
         }

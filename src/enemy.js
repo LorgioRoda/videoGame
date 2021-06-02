@@ -2,8 +2,8 @@ class Enemy {
   constructor(canvas, positionY, speed, enemyImgSrc) {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
-    this.width = 20;
-    this.height = 50;
+    this.width = 60;
+    this.height = 120;
     this.size = this.width + this.height;
     this.positionX = this.canvas.width;
     this.positionY = positionY;
