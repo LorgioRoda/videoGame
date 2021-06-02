@@ -18,9 +18,9 @@ It's a fantasy game based on collisions, using classes, objects and DOM manipula
 
 
 ```javascript
-	this.canvas = null;
-	this.ctx = null;
-	this.enemies = [];
+    this.canvas = null;
+    this.ctx = null;
+    this.enemies = [];
     this.miners = [];
     this.player = null;
     this.gameIsOver = false;
@@ -33,8 +33,8 @@ It's a fantasy game based on collisions, using classes, objects and DOM manipula
 ```
 ####  Class Miner
 ```javascript
-	this.canvas = canvas;
-	this.ctx = this.canvas.getContext("2d");
+    this.canvas = canvas;
+    this.ctx = this.canvas.getContext("2d");
     this.width = 20;
     this.height = 48;
     this.size = this.width + this.height;
@@ -48,7 +48,7 @@ It's a fantasy game based on collisions, using classes, objects and DOM manipula
 ```
 ### Class Player
 ```javascript
-	this.canvas = canvas;
+    this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
     this.width = 70;
     this.height = 150;
@@ -65,7 +65,7 @@ It's a fantasy game based on collisions, using classes, objects and DOM manipula
 ```
 ### Class Enemy
 ```javascript
-	this.canvas = canvas;
+    this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
     this.width = 60;
     this.height = 120;
@@ -80,7 +80,7 @@ It's a fantasy game based on collisions, using classes, objects and DOM manipula
 ```
 ### Class Timer
 ```javascript
-	this.currentTime = 150;
+    this.currentTime = 150;
     this.intervalId = 0;
 ```
 ### States y States Transitions
