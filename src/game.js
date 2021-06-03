@@ -34,7 +34,7 @@ class Game {
     //player
     this.player = new Player(
       this.canvas,
-      "/images/sprite-player/player.png"
+      "../images/sprite-player/player.png"
     );
 
     this.timer.startClick();
@@ -61,7 +61,7 @@ class Game {
             this.canvas,
             randomY,
             0.8,
-            "/images/enemy/enemy.png"
+            "../images/enemy/enemy.png"
           );
           this.enemies.push(newEnemy);
         }
@@ -101,7 +101,7 @@ class Game {
             this.canvas,
             randomX,
             3,
-            "/images/miner/ally.png"
+            "../images/miner/ally.png"
           );
           this.miners.push(newMiners);
         }
